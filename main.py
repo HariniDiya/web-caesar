@@ -9,19 +9,19 @@ form = """
 <html>
     <head>
         <style>
-            form {
+            form {{
                 background-color: #eee;
                 padding: 20px;
                 margin: 0 auto;
                 width: 540px;
                 font: 16px sans-serif;
                 border-radius: 10px;
-            }
-            textarea {
+            }}
+            textarea {{
                 margin: 10px 0;
                 width: 540px;
                 height: 120px;
-            }
+            }}
         </style>
     </head>
     <body>
@@ -29,7 +29,7 @@ form = """
         <label for="Rotate">Rotate by:</label>
         <input id="Rotate" type="text" name="rot" value=0 />
         <label>
-            <textarea name="text"></textarea>
+            <textarea name="text">{0}</textarea>
         </label>
         <input type="submit" />
         
@@ -43,14 +43,14 @@ form = """
 
 @app.route("/")
 def index():
-    return form
+    return form.format("")
 
 @app.route("/", methods=['POST'])
 
 def enc():
     rotate = request.form['rot']
     text = request.form['text']
-    return encrypt(text,rotate)
+    return form.format(encrypt(text,rotate))
 
 """ def add_movie():
     new_movie = request.form['new-movie']
