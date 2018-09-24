@@ -50,17 +50,6 @@ def index():
 def enc():
     rotate = request.form['rot']
     text = request.form['text']
-    return form.format(encrypt(text,rotate))
-
-""" def add_movie():
-    new_movie = request.form['new-movie']
-    movies.append(new_movie)
-    # build response content
-    new_movie_element = "<strong>" + new_movie + "</strong>"
-    sentence = new_movie_element + " has been added to your Watchlist!"
-    content = page_header + "<p>" + sentence + "</p>" + page_footer
-
-    return content """
-
+    return "<b>" "<h1>" + form.format(encrypt(text,rotate)) + "</h1>" "</b>"
 
 app.run()
